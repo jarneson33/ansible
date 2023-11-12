@@ -3,7 +3,11 @@
 
   become: true
   tasks:
-    - name: update dnf packages
+    - name: Update all packages
       dnf:
-        upgrade: yes
+        name: '*'
+        state: latest
+
+    - name: Update package manager cache
+      dnf:
         update_cache: yes
